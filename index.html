@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+  <!--link rel="stylesheet" href="/assets/css/style.css"> -->
+  <style>
+  h3{
+    font-family:Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+ 
+h1{
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+}
+ </style>
+  
+   <title>Crystal Collector</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+          <a class="navbar-brand " href="#">Crystal Collector</a>
+         
+          </div>
+        </nav>
+      <div class="container">
+          <!-- Content here -->
+          
+<!---Content Start-->
+
+  <div class="row">
+    <div class="col-sm" id="first-cell">
+      <img src="assets/images/amethyst_freeform_ml.jpg" width="150">
+      <button class="btn number" id="crystal-1">Crystal 1</button>
+    </div>
+    <div class="col-sm" id="second-cell">
+      <img src="assets/images/beryl_m.jpg" width="150">
+      <button class="btn number" id="crystal-2">Crystal 2</button>
+    </div>
+    <div class="col-sm" id="third-cell">
+      <img src="assets/images/Titanium-quartz-13.jpg" width="150">
+      <button class="btn number" id="crystal-3">Crystal 3</button>
+    </div>
+    <div class="col-sm" id="fouth-cell">
+      <img src="assets/images/turquoise_m.jpg" width="150">
+      <button class="btn number" id="crystal-4">Crystal 4</button>
+    </div>         
+</div>  
+    <div class="row bg-dark " >
+    <div class="col-sm" id="start-number-display-title"><h3>Start&nbsp;Number</h3></div>
+    <div class="col-sm" id="your-number-display-title" ><h3>Your&nbsp;Number</h3></div>
+    <div class="col-sm" id="your-number-title-wins"> <h3>Wins</h3></div>
+    <div class="col-sm" id="your-number-loss-title"><h3> Loss</h3></div>
+    </div>
+
+<div class="row">
+  <div class="col-sm"><h1 id="start-number-display"></h1></div>
+  <div class="col-sm"><h1 id="your-number-display"></h1></div>
+  <div class="col-sm"><h1 id="your-number-wins"></h1></div> 
+  <div class="col-sm"><h1 id="your-number-loss"></h1></div>
+</div>
+
+
+<!----Content End-->
+
+
+
+
+
+            <!---End container-->
+        </div>
+        <nav class="navbar fixed-bottom navbar-light bg-dark">
+  </footer>
+  <a class="navbar-brand" href="#">copy right @</a>
+          </nav>
+
+
+
+
+
+          <script type="text/javascript">
+
+            $(document).ready(function() {
+        
+              
+              var startNumber = 0;
+              var playerNumber = 0;
+              var plalyerWins = 0;
+              var plalyerLoss = 0;
+              var outcome = "";
+              var game = 0;
+              var wins = 0;
+              var loss = 0;
+              
+              ///Move to rest at new game start
+              var crystal1 = Math.floor(Math.random() * 3) + 1;
+              var crystal2 = Math.floor(Math.random() * 6) + 1;
+              var crystal3 = Math.floor(Math.random() * 9) + 1;
+              var crystal4 = Math.floor(Math.random() * 12) + 1;
+             
+///this produces the match number between 19-120
+          
+          var min =19;
+          var max =120;
+
+            function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);            
+            }
+
+
+            
+            
+            ///function to create random number
+            var startNumber=getRandom(min, max)
+
+            ///console.log("start number",);
+            console.log("start number2",startNumber);
+            $("#start-number-display").text(startNumber);
+            ///this produces the match number
+           
+          ////Sets the value of crystal  butttons
+            $("#crystal-1").val(crystal1);
+            $("#crystal-2").val(crystal2);
+            $("#crystal-3").val(crystal3);
+            $("#crystal-4").val(crystal4);
+            console.log("crystal val 1 ",crystal1);
+            console.log("crystal val 2",crystal2);
+            console.log("crystal val 3",crystal3);
+            console.log(" crystal val 4",crystal4);
+           
+            function resetGame(){
+              startNumber = getRandom(min, max);
+              playerNumber = 0;
+              crystal1 = Math.floor(Math.random() * 3) + 1;
+              crystal2 = Math.floor(Math.random() * 6) + 1;
+              crystal3 = Math.floor(Math.random() * 9) + 1;
+              crystal4 = Math.floor(Math.random() * 12) + 1;
+              $("#crystal-1").val(crystal1);
+              $("#crystal-2").val(crystal2);
+              $("#crystal-3").val(crystal3);
+              $("#crystal-4").val(crystal4);
+              $("#start-number-display").text(startNumber);
+            }
+            
+
+
+            function startCalculator(){
+              playerNumber = 0;
+              playerNumber2 = 0;
+              firstNumber = 0;
+            }
+            
+             $("#crystal-1").on("click", function(){
+               playerNumber += crystal1;
+             console.log("click1" ,(playerNumber));
+             firstNumber = parseInt(playerNumber);
+              $("#your-number-display").text(firstNumber);
+             })
+
+             $("#crystal-2").on("click", function(){
+                
+              playerNumber += crystal2;
+             console.log("click2" ,(playerNumber));
+             firstNumber = parseInt(playerNumber);
+              $("#your-number-display").text(firstNumber);
+             
+             }) 
+             $("#crystal-3").on("click", function(){
+              playerNumber += crystal3;
+             console.log("click3" ,(playerNumber));
+             firstNumber = parseInt(playerNumber);
+              $("#your-number-display").text(firstNumber);
+             })
+
+             $("#crystal-4").on("click", function(){
+              playerNumber += crystal4;
+              firstNumber = parseInt(playerNumber);
+              $("#your-number-display").text(firstNumber);
+              })
+              console.log(" fn",startCalculator.firstNumber);
+              console.log(" sn",startNumber);
+          
+
+            
+            startCalculator();
+console.log(" playerNumber end",startCalculator.playerNumber);
+            /// playerNumber += $(this).val();
+              
+          
+            
+            console.log(" startNumber start",startNumber);
+        
+        $(".number").on("click", function() {
+        
+          if (firstNumber === startNumber) {
+            outcome = "Yes-It's equal";
+            wins++;
+            game++;
+            resetGame();      
+            }
+          else if (firstNumber === 0) {
+            outcome = "No";
+
+            }
+          else  if (firstNumber > startNumber) {
+            outcome = "You Went Over!"
+            loss++;
+            resetGame();
+          ///  game= game + 1;     
+            }  
+        $("#your-number-wins").text(wins);
+        $("#your-number-loss").text(loss);
+        
+        
+
+        console.log(" firstNumber start",firstNumber); 
+    
+
+      console.log(" WINS",wins); 
+      console.log(" LOSS",loss); 
+      console.log(" games",game);
+
+
+
+
+
+        
+      });   
+  
+       // $(".btn").on("click", function() {    
+       ///     if (firstNumber >> startNumber) {
+       ///////   outcome= "You Went Over!";
+       /// }  
+           
+       // $("#your-number-status").text(outcome);
+      ///}); 
+      
+      
+
+       
+        
+
+        });
+        
+        </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
